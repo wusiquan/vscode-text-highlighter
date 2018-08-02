@@ -1,0 +1,47 @@
+{
+    "name": "vscode-text-highlighter",
+    "displayName": "vscode-text-highlighter",
+    "description": "vscode text highlighter plugin",
+    "version": "0.0.1",
+    "publisher": "wusiquan",
+    "engines": {
+        "vscode": "^1.25.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "*"
+    ],
+    "contributes": {
+        "configuration": {
+            "type": "object",
+            "title": "Text Highlighter -- Configuration",
+            "properties": {
+                "texthighlighter.languageSupport": {
+                    "type": "array",
+                    "description": "language identifiers for text-highlighter, https://code.visualstudio.com/docs/languages/identifiers",
+                    "default": [
+                        "javascript",
+                        "typescript"
+                    ]
+                }
+            }
+        }
+    },
+    "main": "./out/extension",
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "@types/mocha": "^2.2.42",
+        "@types/node": "^7.0.43",
+        "tslint": "^5.11.0",
+        "typescript": "^3.0.1",
+        "vscode": "^1.1.18"
+    }
+}
