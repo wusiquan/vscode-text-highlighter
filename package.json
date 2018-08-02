@@ -1,7 +1,7 @@
 {
     "name": "vscode-text-highlighter",
     "displayName": "vscode-text-highlighter",
-    "description": "vscode text highlighter plugin",
+    "description": "vscode-text-highlighter extension",
     "version": "0.0.1",
     "publisher": "wusiquan",
     "engines": {
