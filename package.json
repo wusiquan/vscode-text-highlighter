@@ -1,47 +1,79 @@
 {
-    "name": "vscode-text-highlighter",
-    "displayName": "vscode-text-highlighter",
-    "description": "vscode-text-highlighter extension",
-    "version": "0.0.1",
-    "publisher": "wusiquan",
-    "engines": {
-        "vscode": "^1.25.0"
-    },
-    "categories": [
-        "Other"
-    ],
-    "activationEvents": [
-        "*"
-    ],
-    "contributes": {
-        "configuration": {
-            "type": "object",
-            "title": "Text Highlighter -- Configuration",
-            "properties": {
-                "texthighlighter.languageSupport": {
-                    "type": "array",
-                    "description": "language identifiers for text-highlighter, https://code.visualstudio.com/docs/languages/identifiers",
-                    "default": [
-                        "javascript",
-                        "typescript"
-                    ]
-                }
-            }
-        }
-    },
-    "main": "./out/extension",
-    "scripts": {
-        "vscode:prepublish": "npm run compile",
-        "compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "npm run compile && node ./node_modules/vscode/bin/test"
-    },
-    "devDependencies": {
-        "@types/mocha": "^2.2.42",
-        "@types/node": "^7.0.43",
-        "tslint": "^5.11.0",
-        "typescript": "^3.0.1",
-        "vscode": "^1.1.18"
-    }
+	"name": "vscode-text-highlighter",
+	"displayName": "vscode-text-highlighter",
+	"description": "vscode-text-highlighter extension",
+	"version": "0.0.1",
+	"publisher": "wusiquan",
+	"engines": {
+		"vscode": "^1.25.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "Text Highlighter -- Configuration",
+			"properties": {
+				"texthighlighter.languageSupport": {
+					"type": "array",
+					"description": "language identifiers for text-highlighter, https://code.visualstudio.com/docs/languages/identifiers",
+					"default": [
+						"javascript",
+						"typescript"
+					]
+				},
+				"texthighlighter.keywords": {
+					"type": "array",
+					"description": "Customize keywords and colors. Any css color identifier is valid.",
+					"items": {
+						"anyOf": [
+							{
+								"type": "string"
+							},
+							{
+								"type": "object",
+								"properties": {
+									"text": {
+										"type": "string",
+										"description": "Custom text to be highlighted"
+									},
+									"color": {
+										"type": "string",
+										"description": "The text color. Besides, you can play with all the string and boolean styling properties provied by VS Code API. See all available properties on VSCode doc DecorationRenderOptions section: https://code.visualstudio.com/docs/extensionAPI/vscode-api"
+									},
+									"backgroundColor": {
+										"type": "string",
+										"description": "The text background color. See all available properties on VSCode doc DecorationRenderOptions section: https://code.visualstudio.com/docs/extensionAPI/vscode-api"
+									},
+									"overviewRulerColor": {
+										"type": "string",
+										"description": "The color of the ruler mark on the scroll bar. Use rgba() and define transparent colors to play well with other decorations. See all available properties on VSCode doc DecorationRenderOptions section: https://code.visualstudio.com/docs/extensionAPI/vscode-api"
+									}
+								}
+							}
+						]
+					}
+				}
+			}
+		}
+	},
+	"main": "./out/extension",
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"@types/mocha": "^2.2.42",
+		"@types/node": "^7.0.43",
+		"tslint": "^5.11.0",
+		"typescript": "^3.0.1",
+		"vscode": "^1.1.18"
+	}
 }
